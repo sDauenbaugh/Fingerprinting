@@ -39,3 +39,4 @@ if __name__ == '__main__':
         print(f'MAC: {d["bssid"]}')
         print(f'RSSI: {d["rssi"]}')
         print()
+
