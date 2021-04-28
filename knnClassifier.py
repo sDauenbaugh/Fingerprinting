@@ -65,13 +65,13 @@ class KNN:
         # networks = self.pca.transform(networks)
 
         # fit knn
-        self.trained_knn = KNeighborsClassifier(n_neighbors=neighbors, metric = 'manhattan', algorithm='brute').fit(self.networks, self.positions)
+        self.trained_knn = KNeighborsClassifier(n_neighbors=neighbors).fit(self.networks, self.positions)
 
 
     def test_locations(self, locations):
         # test new input
         locs = pd.DataFrame(locations).apply(lambda x: 10 ** ((-60 - x)/20))
-        locs = pd.DataFrame(locations).apply(lambda x: ((x - -92)/-31-92))
+        #locs = pd.DataFrame(locations).apply(lambda x: ((x - -92)/-31-92))
         # locs = self.pca.transform(locs)
         # sparse_matrix = scipy.sparse.csr_matrix(locs)
         pos = self.trained_knn.predict(locs)
